@@ -1,0 +1,32 @@
+//you havt install my sql and jar file 
+import java.io.*;
+import java.sql.*;
+
+public class Databaseconnection {
+    public static  void main(String[] args) {
+        //step 1 create a input stream
+        DataInputStream dis = new DataInputStream(System.in);
+
+        try {
+            //step 2 Create a Connection
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql", "root", "mrspidey");
+            System.out.println(connection);
+
+
+            //step 3 create a statement 
+           Statement st = connection.createStatement();
+
+            //step 4 create a query
+            String query = "insert into mymy()values(\"MRSpidey\");";
+
+            //execute the query
+            st.executeUpdate(query);
+
+            connection.close();
+            System.out.println("Habibi Yeh run Hoti!");
+        }
+        catch(Exception e) {
+             System.out.println("Exception "+e);
+        }
+    }
+}
